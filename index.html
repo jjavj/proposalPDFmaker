@@ -599,6 +599,42 @@
             }
         }
 
+        @media screen and (max-width: 1024px) {
+            .app-toolbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .actions-group {
+                width: 100%;
+                justify-content: stretch;
+            }
+            .btn {
+                flex: 1;
+                justify-content: center;
+            }
+            .workspace-layout {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .data-sidebar {
+                width: 100%;
+                position: static;
+                max-height: none;
+                margin-bottom: 20px;
+            }
+            .document-container {
+                align-items: flex-start;
+                overflow-x: auto;
+                max-width: 100%;
+                padding-bottom: 20px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .proposal-paper {
+                margin: 0;
+                min-width: 8.5in;
+            }
+        }
+
         /* PDF Print Setup overrides */
         @page {
             size: letter;
@@ -622,8 +658,12 @@
                 border: none !important;
                 padding: 0.5in 0.6in;
                 /* Match screen padding to ensure full bleed logo */
-                width: 100%;
-                height: 11in;
+                width: 8.5in !important;
+                max-width: 8.5in !important;
+                min-width: 8.5in !important;
+                height: 11in !important;
+                max-height: 11in !important;
+                min-height: 11in !important;
                 /* Fixed height to guarantee exactly one printed page */
             }
 
