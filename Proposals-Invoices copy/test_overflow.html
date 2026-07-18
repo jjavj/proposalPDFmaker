@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aztec Electric Proposal - Swell Yoga Studio</title>
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS variables for a curated teal-based design system */
+        :root {
+            --primary-teal: #1c8b8d;
+            --primary-dark: #135d5f;
+            --text-dark: #2b3536;
+            --text-muted: #5c6a6b;
+            --bg-light: #f4f8f8;
+            --border-color: #d1dfdf;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* General Document Setup */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            background-color: #e5ecec;
+            margin: 0;
+            padding: 40px 20px;
+            font-size: 13px;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* App Header / Toolbar (Screen Only) */
+        .app-toolbar {
+            max-width: 8.5in;
+            margin: 0 auto 20px auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo-small {
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-teal);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .actions-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-teal);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-light);
+            border-color: var(--primary-teal);
+        }
+
+        /* Proposal Container */
+        .proposal-paper {
+            background-color: white;
+            width: 8.5in;
+            height: 11in; /* Fixed height to enforce single-page format */
+            margin: 0 auto;
+            padding: 0.5in 0.6in; /* Compressed vertical padding to 0.5in */
+            box-shadow: var(--card-shadow);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header & Logo */
+        .header-logo {
+            background-color: #050505; /* Blends seamlessly with the dark logo background */
+            text-align: center;
+            margin: -0.5in -0.6in 20px -0.6in; /* Adjusted negative margin to match new padding and reduced bottom margin */
+            padding: 20px 20px; /* Reduced vertical padding */
+            border-bottom: 4px solid var(--primary-teal);
+        }
+        
+        .header-logo img {
+            max-height: 140px; /* Reduced logo height to save vertical space */
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: inline-block;
+        }
+
+        /* Top Information Grid */
+        .top-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            margin-bottom: 25px; /* Reduced vertical space */
+        }
+
+        /* Client Column */
+        .title-section {
+            margin-bottom: 15px; /* Reduced margin */
+        }
+        
+        .document-type {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--primary-teal);
+        }
+        
+        .project-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px; /* Slightly smaller header */
+            font-weight: 500;
+            line-height: 1.1;
+            margin: 0;
+            color: var(--text-dark);
+        }
+        
+        .issued-to-label {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            font-size: 10.5px;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .client-details {
+            font-size: 12px; /* Marginally smaller */
+            line-height: 1.45;
+            color: var(--text-dark);
+        }
+
+        /* Company / Details Column */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: right;
+        }
+
+        .company-info {
+            font-size: 11.5px; /* Marginally smaller */
+            line-height: 1.45;
+            color: var(--text-muted);
+            margin-bottom: 15px; /* Reduced margin */
+        }
+        
+        .invoice-details table {
+            margin-left: auto;
+            border-collapse: collapse;
+        }
+        
+        .invoice-details td {
+            padding: 3px 0 3px 20px; /* More compact spacing */
+            font-size: 10.5px;
+            letter-spacing: 1px;
+        }
+        
+        .invoice-details td:first-child {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .invoice-details td:last-child {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Teal Header Bar */
+        .teal-bar {
+            background-color: var(--primary-teal);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 18px; /* Slightly tighter vertical padding */
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 11px;
+            margin-bottom: 15px; /* Reduced margin */
+            border-radius: 4px;
+        }
+
+        /* Description & Scope Section */
+        .scope-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            margin-bottom: 25px; /* Reduced spacing */
+            gap: 30px;
+        }
+        
+        .scope-text {
+            width: 75%;
+            font-size: 12px; /* Marginally compressed font size */
+            line-height: 1.5;
+        }
+        
+        .scope-text p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .scope-text ul {
+            margin-top: 0;
+            padding-left: 20px;
+            color: var(--text-dark);
+        }
+        
+        .scope-text li {
+            margin-bottom: 4px; /* More compact spacing */
+        }
+        
+        .scope-price {
+            width: 25%;
+            text-align: right;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 14.5px;
+            color: var(--primary-dark);
+            padding-top: 2px;
+        }
+
+        /* Totals Section */
+        .totals-container {
+            width: 45%;
+            margin-left: auto;
+            margin-bottom: 25px; /* Reduced spacing */
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+        }
+        
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 15px; /* More compact padding */
+            font-size: 11.5px;
+            color: var(--text-dark);
+        }
+
+        .totals-row div:first-child {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .totals-row div:last-child {
+            font-weight: 600;
+        }
+        
+        .totals-row.grand-total {
+            background-color: var(--primary-teal);
+            color: white;
+            border-radius: 4px;
+            padding: 8px 15px; /* More compact padding */
+            margin-top: 4px;
+        }
+
+        .totals-row.grand-total div:first-child {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1.2px;
+        }
+
+        .totals-row.grand-total div:last-child {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+        }
+
+        /* Exclusions Section */
+        .exclusions-section {
+            padding: 15px 20px; /* Reduced padding */
+            background-color: var(--bg-light);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-size: 11px; /* Marginally compressed font size */
+            line-height: 1.55;
+        }
+        
+        .exclusions-section h4 {
+            margin: 0 0 8px 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        
+        .exclusions-section ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--text-dark);
+        }
+        
+        .exclusions-section li {
+            margin-bottom: 4px; /* More compact spacing */
+        }
+
+        /* Interactive Editing Styles */
+        [contenteditable="true"] {
+            outline: 2px dashed rgba(28, 139, 141, 0.3);
+            outline-offset: 4px;
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        [contenteditable="true"]:focus {
+            outline: 2px solid var(--primary-teal);
+            background-color: rgba(28, 139, 141, 0.05);
+        }
+
+        /* PDF Print Setup overrides */
+        @page {
+            size: letter;
+            margin: 0; /* Enables full bleed dark header banner, margins managed by page padding */
+        }
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .proposal-paper {
+                box-shadow: none;
+                border: none;
+                padding: 0.5in 0.6in; /* Match screen padding to ensure full bleed logo */
+                width: 100%;
+                height: 11in; /* Fixed height to guarantee exactly one printed page */
+            }
+            [contenteditable="true"] {
+                outline: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOOLBAR (Hidden when printing) -->
+    <div class="app-toolbar no-print">
+        <div class="brand-info">
+            <div class="brand-logo-small">⚡</div>
+            <div class="brand-title">Aztec Electric Document Hub</div>
+        </div>
+        <div class="actions-group">
+            <button class="btn btn-secondary" id="edit-toggle" onclick="toggleEdit()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: -2px;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4z"></path></svg>
+                <span>Edit Document</span>
+            </button>
+            <button class="btn btn-primary" onclick="window.print()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: -2px;"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                <span>Print / Save PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- PROPOSAL PAGE -->
+    <div class="proposal-paper">
+        <div class="proposal-content-inner">
+            <!-- LOGO -->
+            <div class="header-logo">
+                <img src="logo.png" alt="Aztec Electric">
+            </div>
+
+        <!-- TOP GRID -->
+        <div class="top-grid">
+            <!-- Left Column - Client & Document Info -->
+            <div class="left-col">
+                <div class="title-section">
+                    <div class="document-type" contenteditable="false" id="doc-type">PROPOSAL</div>
+                    <h1 class="project-title" contenteditable="false" id="project-title">Swell Yoga Studio</h1>
+                </div>
+                
+                <div class="issued-to-label">ISSUED TO:</div>
+                <div class="client-details" contenteditable="false" id="client-details">
+                    Maria Polonchek<br>
+                    Swell Yoga Studio<br>
+                    40 Stone Pine Rd, Suite H<br>
+                    Half Moon Bay, CA 94019
+                </div>
+            </div>
+
+            <!-- Right Column - Company Info & Details -->
+            <div class="right-col">
+                <div class="company-info" contenteditable="false" id="company-info">
+                    Aztec Electric Lic# 952706<br>
+                    P.O. Box 203<br>
+                    Half Moon Bay, CA 94019<br>
+                    aztecelectric.ca@gmail.com
+                </div>
+                
+                <div class="invoice-details">
+                    <table>
+                        <tr>
+                            <td>INVOICE NO:</td>
+                            <td contenteditable="false" id="invoice-no">531</td>
+                        </tr>
+                        <tr>
+                            <td>DATE:</td>
+                            <td contenteditable="false" id="invoice-date">05.08.2026</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN SCOPE TABLE -->
+        <div class="teal-bar">
+            <div>DESCRIPTION</div>
+            <div>TOTAL</div>
+        </div>
+
+        <div class="scope-container">
+            <div class="scope-text">
+                <div contenteditable="false" id="scope-desc">
+                    <p>Provide all labor, materials, equipment, and supervision necessary to complete the electrical work for the Swell Yoga Studio tenant improvement. Scope includes, but is not limited to:</p>
+                    <ul>
+                        <li>Installation of new hanging pendant lighting</li>
+                        <li>Installation of ceiling fans</li>
+                        <li>Installation of recessed lighting in back rooms</li>
+                        <li>Replacement of existing wall-mounted light fixtures</li>
+                        <li>Installation of switches and lighting controls</li>
+                        <li>Installation of new receptacles throughout the space</li>
+                        <li>Electrical work associated with custom suspended heater mounting structure</li>
+                        <li>Installation of raceways, junction boxes, gutter box, wiring, and terminations for owner-furnished heaters and relays</li>
+                        <li>Rework and modifications to existing Panel A as required</li>
+                        <li>Final device and equipment terminations</li>
+                        <!-- TEST ITEMS TO SHOW DYNAMIC SCALE-DOWN -->
+                        <li>[TEST ADDITION 1] Installation of extra convenience outlets in lobby</li>
+                        <li>[TEST ADDITION 2] Temporary electrical service for construction crew</li>
+                        <li>[TEST ADDITION 3] Post-installation testing and thermal imaging diagnostics</li>
+                        <li>[TEST ADDITION 4] Installation of exterior security motion-sensor lighting</li>
+                        <li>[TEST ADDITION 5] Extended warranty on labor and installation workmanship</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="scope-price" contenteditable="false" id="scope-price">
+                $31,500.00
+            </div>
+        </div>
+
+        <!-- TOTALS -->
+        <div class="totals-container">
+            <div class="totals-row">
+                <div>SUBTOTAL</div>
+                <div contenteditable="false" id="subtotal">$31,500.00</div>
+            </div>
+            <div class="totals-row grand-total">
+                <div>TOTAL</div>
+                <div contenteditable="false" id="grand-total">$31,500.00</div>
+            </div>
+        </div>
+
+        <!-- CLARIFICATIONS & EXCLUSIONS -->
+        <div class="exclusions-section">
+            <h4 contenteditable="false" id="excl-header">Clarifications / Exclusions</h4>
+            <div contenteditable="false" id="exclusions-list">
+                <ul>
+                    <li>Heaters and relays are owner-furnished.</li>
+                    <li>Lighting package not included.</li>
+                    <li>Existing kitchen receptacles are excluded from this proposal and assumed to remain untouched.</li>
+                    <li>Any additional kitchen electrical work, troubleshooting, relocation, or rewiring shall be considered additional work.</li>
+                    <li>Structural reinforcement or engineering is not included.</li>
+                    <li>Pricing is based on currently available information and field conditions.</li>
+                    <!-- TEST ITEMS TO SHOW DYNAMIC SCALE-DOWN -->
+                    <li>[TEST EXCLUSION 1] Main panel upgrade is excluded unless noted otherwise.</li>
+                    <li>[TEST EXCLUSION 2] Drywall cutting, patching, and painting are excluded.</li>
+                    <li>[TEST EXCLUSION 3] Utility company fees or connection charges are excluded.</li>
+                </ul>
+            </div>
+        </div>
+        </div><!-- .proposal-content-inner -->
+
+    </div>
+
+    <!-- Script to toggle editing and layout auto-fitting -->
+    <script>
+        let isEditing = false;
+        const editableElements = [
+            'doc-type', 'project-title', 'client-details', 'company-info', 
+            'invoice-no', 'invoice-date', 'scope-desc', 'scope-price', 
+            'subtotal', 'grand-total', 'excl-header', 'exclusions-list'
+        ];
+
+        function adjustLayoutToFit() {
+            const paper = document.querySelector('.proposal-paper');
+            const inner = document.querySelector('.proposal-content-inner');
+            if (!paper || !inner) return;
+
+            // Reset font size to default first (13px) to measure full content height
+            paper.style.fontSize = '13px';
+            
+            const style = window.getComputedStyle(paper);
+            const paddingTop = parseFloat(style.paddingTop);
+            const paddingBottom = parseFloat(style.paddingBottom);
+            
+            // Available height inside the fixed 11in page (accounting for margins/paddings)
+            const maxAllowedHeight = paper.clientHeight - (paddingTop + paddingBottom) - 2; 
+            
+            let currentFontSize = 13;
+            let iterations = 0;
+            
+            // Incrementally shrink font size until everything fits perfectly on exactly one page
+            while (inner.scrollHeight > maxAllowedHeight && currentFontSize > 8 && iterations < 50) {
+                currentFontSize -= 0.1;
+                paper.style.fontSize = currentFontSize + 'px';
+                iterations++;
+            }
+            
+            console.log(`Auto-fit: scaled font size to ${currentFontSize}px (iterations: ${iterations})`);
+        }
+
+        function toggleEdit() {
+            isEditing = !isEditing;
+            const btn = document.getElementById('edit-toggle');
+            const span = btn.querySelector('span');
+            
+            editableElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.contentEditable = isEditing ? "true" : "false";
+                }
+            });
+
+            if (isEditing) {
+                btn.style.backgroundColor = 'var(--bg-light)';
+                btn.style.borderColor = 'var(--primary-teal)';
+                btn.style.color = 'var(--primary-teal)';
+                span.innerText = 'Lock Editing';
+            } else {
+                btn.style.backgroundColor = 'white';
+                btn.style.borderColor = 'var(--border-color)';
+                btn.style.color = 'var(--text-dark)';
+                span.innerText = 'Edit Document';
+                adjustLayoutToFit(); // Auto-fit spacing after editing lock
+            }
+        }
+
+        // Run on load and initialize event listeners
+        window.addEventListener('load', () => {
+            adjustLayoutToFit();
+            
+            // Bind real-time input events for instant resize
+            editableElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', adjustLayoutToFit);
+                }
+            });
+        });
+
+        // Ensure recalculation before printing/PDF generation
+        window.addEventListener('beforeprint', adjustLayoutToFit);
+    </script>
+</body>
+</html>
